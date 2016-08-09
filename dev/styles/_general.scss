@@ -1,0 +1,30 @@
+$darkGreen: #57531D;
+$lightGreen: #8A792E;
+$paleBlue: #97DDCA;
+$mint: #7A9E7E;
+$pearl: #E6E1C5;
+
+$headline: 'Rubik Mono One', sans-serif;
+
+$bodyFont: 'Quicksand', sans-serif;
+
+h1, h2, h3, h4 {
+font-family: $headline;
+}
+
+body{
+	font-family: $bodyFont;
+	background-color: $pearl;
+}
+
+h1,h2 {
+	color: $darkGreen;
+    font-size: 11vh;
+    margin: 55px;
+    text-transform: uppercase;
+    letter-spacing: 14.5px;
+}
+
+h2 {
+	font-size: 60px;
+}

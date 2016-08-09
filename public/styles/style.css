@@ -127,3 +127,20 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 *, *:before, *:after {
   box-sizing: border-box; }
+
+h1, h2, h3, h4 {
+  font-family: "Rubik Mono One", sans-serif; }
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background-color: #E6E1C5; }
+
+h1, h2 {
+  color: #57531D;
+  font-size: 11vh;
+  margin: 55px;
+  text-transform: uppercase;
+  letter-spacing: 14.5px; }
+
+h2 {
+  font-size: 60px; }
