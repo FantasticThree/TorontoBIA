@@ -133,14 +133,14 @@ h1, h2, h3, h4 {
 
 body {
   font-family: "Quicksand", sans-serif;
-  background-color: #E6E1C5; }
+  background-color: #7A9E7E; }
 
 h1, h2 {
-  color: #57531D;
+  color: #E6E1C5;
   font-size: 11vh;
   margin: 55px;
   text-transform: uppercase;
-  letter-spacing: 14.5px; }
+  letter-spacing: 5px; }
 
 h2 {
   font-size: 60px; }
