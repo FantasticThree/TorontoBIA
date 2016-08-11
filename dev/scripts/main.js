@@ -8,51 +8,51 @@ events.version = '20130815';
 var scenarios = [
 	{
 		instance: "Transport yourself to the center of helm's deep during the Battle of Hornburg to throw a battle axe into the skull of an Uruk Hai.",
-		value: "BATL"
+		searchValue: "BATL"
 	},
 	{
 		instance: "Stroll down Park Place with Rich Uncle Penny Bags making it rain because you know you’re about to pass GO.",
-		value: "castle board game cafe"
+		searchValue: "castle board game cafe"
 	},
 	{
 		instance: "Kill some time during the Punic Wars against Carthage by throwing rocks at some other rocks with your fellow soldiers.",
-		value: "Track & Field"
+		searchValue: "Track & Field"
 	},
 	{
 		instance: "Spank some balls with a wooden paddle while sipping on a Negroni with all your pals.",
-		value: "spin toronto"
+		searchValue: "spin toronto"
 	},
 	{
 		instance: "Cease to be conscious of ones self as the one who is engaged in hitting a bulls-eye that confronts you.",
-		value: "archery district"
+		searchValue: "archery district"
 	},
 	{
 		instance: "Break into a museum with an elite team of thieves tasked with acquiring an illusive and mysterious relic.",
-		value: "escape games"
+		searchValue: "escape games"
 	},
 	{
 		instance: "Travel back in time to be a contestant on American Gladiators only to have your dreams of winning shattered by some muscle bound behemoth named Bronco.",
-		value: "Pursuit OCR"
+		searchValue: "Pursuit OCR"
 	},
 	{
 		instance: "Dangle off the edge of Yellow Mountain while you watch your safety line slowly drift 900 meters to the ground.",
-		value: "Boulderz"
+		searchValue: "Boulderz"
 	},
 	{
 		instance: "Spend your free time in the ice age bouncing on the stretched skin of a wooly mammoth.",
-		value: "Sky Zone"
+		searchValue: "Sky Zone"
 	},
 	{
 		instance: "Sip a tasty non-fat-one-pump-no-whip mocha while being smothered by a barrage of kitties.",
-		value: "TOT cat cafe"
+		searchValue: "TOT cat cafe"
 	},
 	{
 		instance: "Exist inside a gelatinous ectoplasm playing for Manchester United in the FA Cup Final.",
-		value: "Bubble Soccer Toronto"
+		searchValue: "Bubble Soccer Toronto"
 	},
 	{
 		instance: "Run through a post apocalyptic battle field equipped with a photon blaster.",
-		value: "Laser Quest"
+		searchValue: "Laser Quest"
 	},
 ];
 //Pull Two Scenarios At Random Out Of Object
@@ -74,8 +74,17 @@ var myNum = getNewRandom(rouletteScenario1);
 
 $('.option1').append(scenarios[rouletteScenario1].instance);
 $('.option2').append(scenarios[myNum].instance);
+$('#option1').val(scenarios[rouletteScenario1].searchValue);
+$('#option2').val(scenarios[myNum].searchValue);
 
-events.getInfo = function() {
+// var userChoice = "";
+
+$("fieldset").on("click", function(){
+var userChoice = $("input[type=radio]:checked").val();
+events.getInfo(userChoice);
+});
+
+events.getInfo = function(userChoice) {
 	$.ajax({
 		url: 'https://api.foursquare.com/v2/venues/search?',
 		method: 'GET',
@@ -85,11 +94,9 @@ events.getInfo = function() {
 			client_secret: events.clientSecret,
 			v: events.version,
 			near: 'toronto',
-			query: 'laser quest'
+			query: userChoice
 		}
 	}).then(function(data){
 		console.log(data.response.venues);
 	});
 };
-
-events.getInfo();
