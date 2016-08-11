@@ -1,0 +1,15 @@
+.galleryActivities {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+
+		div {
+			width: 33.33%;
+			height: 25%;
+		}
+}
+
+.galleryActivities img {
+	display: block;
+	width: 100%;
+}
