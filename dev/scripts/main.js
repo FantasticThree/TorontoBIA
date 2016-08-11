@@ -79,9 +79,10 @@ $('#option2').val(scenarios[myNum].searchValue);
 
 // var userChoice = "";
 
-$("fieldset").on("click", function(){
+$("input[type=radio]").on("click", function(){
 var userChoice = $("input[type=radio]:checked").val();
 events.getInfo(userChoice);
+console.log(userChoice);
 });
 
 events.getInfo = function(userChoice) {
@@ -98,5 +99,20 @@ events.getInfo = function(userChoice) {
 		}
 	}).then(function(data){
 		console.log(data.response.venues);
+		console.log(userChoice);
+
+		events.displayInfo(data.response.venues[0]);
+		console.log(data.response.venues[0]);
 	});
+};
+
+events.displayInfo = function(venue){
+//GRAB NAME, URL, PHONE#, ADDRESS, STORE HOURS FROM FIRST RESULT
+    var venueName = venue.name;
+    var venueURL = venue.url;
+    var venuePhone = venue.contact.formattedPhone;
+    var venueAddress = venue.location.formattedAddress;
+//APPEND TO HTML
+    $('.activityTitle').text(venueName);
+//DUMP INTO CONTAINER
 };
