@@ -39,7 +39,7 @@ var scenarios = [
 	{
 		instance: "Travel back in time to be a contestant on American Gladiators only to have your dreams of winning shattered by some muscle bound behemoth named Bronco.",
 		searchValue: "Pursuit OCR",
-		image: "public/styles/imagespursuitOCR.jpg"
+		image: "public/styles/images/pursuitOCR.jpg"
 	},
 	{
 		instance: "Dangle off the edge of Yellow Mountain while you watch your safety line slowly drift 900 meters to the ground.",
@@ -109,10 +109,9 @@ events.getInfo = function(userChoice) {
 			query: userChoice
 		}
 	}).then(function(data){
-		console.log(data.response.venues);
-		console.log(userChoice);
 		events.displayInfo(data.response.venues[0]);
-		console.log(data.response.venues[0]);
+		// console.log(userChoice);
+		// console.log(data.response.venues[0]);
 	});
 };
 
@@ -120,13 +119,17 @@ events.displayInfo = function(venue, userNumber){
 //GRAB NAME, URL, PHONE#, ADDRESS, STORE HOURS FROM FIRST RESULT
     var venueName = venue.name;
     var venueURL = venue.url;
+	console.log(venueURL)
     var venuePhone = venue.contact.formattedPhone;
     var venueAddress = venue.location.formattedAddress;
 //APPEND TO HTML
-    $('.activityTitle').text(venueName);
-	// console.log(scenarios[userNumber].image);
-	$('.resultImage').html($("<img>").attr("src", scenarios[events.eventNumber].image))
-//DUMP INTO CONTAINER
+    $(".activityTitle").text(venueName);
+	$(".resultImage").html($("<img>").attr("src", scenarios[events.eventNumber].image));
+	// $(".url").html($("<a>").attr("href", venueURL));
+	var displayURL = $("<a target=\"_blank\">").attr("href", venueURL);
+	var urlText = $(displayURL).text("See Site");
+	// displayURL.append(urlText);
+	$('.url').html(displayURL);
+	$(".location").text(venueAddress[0] + ", " +venueAddress[1] + ", " +venueAddress[2]);
+	$(".phoneNumber").text(venuePhone);
 };
-
-// var clothingImage = $("<div>").html($("<img>").attr("src", item.image.sizes.IPhone.url));
