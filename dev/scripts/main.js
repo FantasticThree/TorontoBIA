@@ -131,28 +131,26 @@ events.getInfo = function(userChoice) {
 	});
 };
 
+
+// "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revision&rvprop=content&titles=laser%20tag&rvsection="1"
+
 wiki.getInfo = function(query) {
 	$.ajax({
-		url: 'https://en.wikipedia.org/w/api.php',
+		url: 'http://en.wikipedia.org/w/api.php',
 		method: 'GET',
 		dataType: 'jsonp',
-		rvprop: 'content',
 		data: {
-			action: 'query',
-			titles: query,
 			format: 'json',
-			prop: 'info',
-			inprop: 'url'
-			// prop: 'revision',
-			// rvlimit: 1,
-			// rvprop: 'content'
-			// rvsection: 0
+			action: 'query',
+			prop: 'revisions',
+			rvprop: 'content',
+			titles: query,
+			rvsection: 1
 		}
 	}).then(function(response) {
 		for (var key in response.query.pages){
-			wiki.displayInfo(response.query.pages[key].canonicalurl);
+		console.log(response.query.pages[key].revisions[0]["*"]);
 		};
-		console.log(response);
 	});
 };
 
