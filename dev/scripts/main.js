@@ -90,11 +90,13 @@ $('#option2').val(myNum);
 
 // var userChoice = "";
 
-$("input[type=radio]").on("click", function(){
-var userChoice = $("input[type=radio]:checked").val();
-events.getInfo(scenarios[userChoice].searchValue);
-events.eventNumber = userChoice;
-});
+function init() {
+	$("input[type=radio]").on("click", function(){
+		var userChoice = $("input[type=radio]:checked").val();
+		events.getInfo(scenarios[userChoice].searchValue);
+		events.eventNumber = userChoice;
+	});
+}
 
 events.getInfo = function(userChoice) {
 	$.ajax({
@@ -119,7 +121,7 @@ events.displayInfo = function(venue, userNumber){
 //GRAB NAME, URL, PHONE#, ADDRESS, STORE HOURS FROM FIRST RESULT
     var venueName = venue.name;
     var venueURL = venue.url;
-	console.log(venueURL)
+	console.log(venueURL);
     var venuePhone = venue.contact.formattedPhone;
     var venueAddress = venue.location.formattedAddress;
 //APPEND TO HTML
@@ -133,3 +135,9 @@ events.displayInfo = function(venue, userNumber){
 	$(".location").text(venueAddress[0] + ", " +venueAddress[1] + ", " +venueAddress[2]);
 	$(".phoneNumber").text(venuePhone);
 };
+
+init();
+
+$('.reset a').on('click', function(){
+	init();
+});
