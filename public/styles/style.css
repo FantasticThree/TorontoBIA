@@ -149,7 +149,9 @@ form {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
-          flex-direction: row; }
+          flex-direction: row;
+  border-bottom: 1px solid #E6E1C5;
+  margin: 0 30px; }
   form h2 {
     width: 20%;
     font-size: 4em;
@@ -199,6 +201,33 @@ fieldset {
   height: 100%; }
   .centeringDiv label {
     margin: auto; }
+
+main h3 {
+  color: #E6E1C5;
+  background-color: #57531D;
+  margin: 0px;
+  padding: 20px; }
+
+main .mainResult {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #E6E1C5; }
+  main .mainResult .leftInfo {
+    width: 50%;
+    padding: 30px;
+    background-color: #E6E1C5;
+    text-align: right;
+    margin: auto; }
+    main .mainResult .leftInfo h1 {
+      color: #57531D;
+      margin: 0px; }
+  main .mainResult .resultImage {
+    width: 50%;
+    height: 100%; }
+    main .mainResult .resultImage img {
+      width: 100%;
+      display: block; }
 
 .galleryActivities {
   display: -webkit-box;
