@@ -1,15 +1,39 @@
+
+
 .galleryActivities {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-start;
 
-		div {
-			width: 33.33%;
-			height: 25%;
+}
+
+.galleryItem {
+	width: 33.33%;
+	position: relative;
+		
+		&:hover .overlay {
+			opacity: 1;
 		}
 }
 
 .galleryActivities img {
 	display: block;
 	width: 100%;
+}
+
+.overlay {
+	position: absolute;
+	opacity: 0;
+	height: 90%;
+	width: 90%;
+	top: 5%;
+	left: 5%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(87,83,29, 0.75);
+
+	h4 {
+		color: $pearl;
+	}
 }
