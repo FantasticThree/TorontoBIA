@@ -268,3 +268,8 @@ main .mainResult {
   background-color: rgba(87, 83, 29, 0.75); }
   .overlay h4 {
     color: #E6E1C5; }
+
+.wikiContainer {
+  height: 300px;
+  padding: 30px;
+  overflow: scroll; }
