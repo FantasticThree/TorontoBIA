@@ -4,7 +4,7 @@ $paleBlue: #97DDCA;
 $mint: #7A9E7E;
 $pearl: #E6E1C5;
 
-$headline: 'Rubik Mono One', sans-serif;
+$headline: 'Arvo', serif;
 
 $bodyFont: 'Quicksand', sans-serif;
 
@@ -14,11 +14,11 @@ font-family: $headline;
 
 body{
 	font-family: $bodyFont;
-	background-color: $mint;
+	background-color: black;
 }
 
 header {
-	border-bottom: 1px solid $pearl;
+	border-bottom: 1px solid white;
 	margin: 0 30px;
 }
 
@@ -29,7 +29,7 @@ header {
 form {
 	display: flex;
 	flex-direction: row;
-	border-bottom: 1px solid $pearl;
+	border-bottom: 1px solid white;
 	margin: 0 30px;
 	h2 {
 		width: 20%;
@@ -40,8 +40,8 @@ form {
 }
 
 h1,h2 {
-	color: $pearl;
-    font-size: 2em;
+	color: white;
+    font-size: 3em;
     margin: 30px 0px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -57,20 +57,20 @@ fieldset {
 	width: 40%;
 	height: 200px;
 	padding: 0 30px;
-	background-color: $pearl;
+	background-color: black;
 	text-align: center;
-	border-radius: 30px 30px 30px 30px;
-	border-bottom: 10px solid $darkGreen;
+	// border-radius: 30px 30px 30px 30px;
+	border-bottom: 10px solid white;
 	position: relative;
 	cursor: pointer;
 	transition: all .3s ease-in-out;
 	label {
-		color: $darkGreen;
+		color: white;
 		line-height: 25px;
 		cursor: pointer;
 	}
 	&:hover {
-		background-color: white;
+		background-color: black;
 		transform: translateY(-5px);
 	}
 	input {
@@ -89,22 +89,23 @@ fieldset {
 
 main {
 	h3 {
-		color: $pearl;
-		background-color: $darkGreen;
+		color: black;
+		background-color: white;
 		margin: 0px;
 		padding: 20px;
 	}
 	.mainResult {
 		display: flex;
-		background-color: $pearl;
+		background-color: black;
+		color: white;
+
 		.leftInfo {
 			width: 50%;
 			padding: 30px;
-			background-color: $pearl;
+			// background-color: black;
 			text-align: right;
 			margin: auto;
 			h1 {
-				color: $darkGreen;
 				margin: 0px;
 			}
 		}

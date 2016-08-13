@@ -129,14 +129,14 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box; }
 
 h1, h2, h3, h4 {
-  font-family: "Rubik Mono One", sans-serif; }
+  font-family: "Arvo", serif; }
 
 body {
   font-family: "Quicksand", sans-serif;
-  background-color: #7A9E7E; }
+  background-color: black; }
 
 header {
-  border-bottom: 1px solid #E6E1C5;
+  border-bottom: 1px solid white;
   margin: 0 30px; }
 
 .wouldYouRather {
@@ -150,7 +150,7 @@ form {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  border-bottom: 1px solid #E6E1C5;
+  border-bottom: 1px solid white;
   margin: 0 30px; }
   form h2 {
     width: 20%;
@@ -159,8 +159,8 @@ form {
     text-align: center; }
 
 h1, h2 {
-  color: #E6E1C5;
-  font-size: 2em;
+  color: white;
+  font-size: 3em;
   margin: 30px 0px;
   text-transform: uppercase;
   letter-spacing: 2px; }
@@ -174,20 +174,19 @@ fieldset {
   width: 40%;
   height: 200px;
   padding: 0 30px;
-  background-color: #E6E1C5;
+  background-color: black;
   text-align: center;
-  border-radius: 30px 30px 30px 30px;
-  border-bottom: 10px solid #57531D;
+  border-bottom: 10px solid white;
   position: relative;
   cursor: pointer;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out; }
   fieldset label {
-    color: #57531D;
+    color: white;
     line-height: 25px;
     cursor: pointer; }
   fieldset:hover {
-    background-color: white;
+    background-color: black;
     -webkit-transform: translateY(-5px);
             transform: translateY(-5px); }
   fieldset input {
@@ -203,8 +202,8 @@ fieldset {
     margin: auto; }
 
 main h3 {
-  color: #E6E1C5;
-  background-color: #57531D;
+  color: black;
+  background-color: white;
   margin: 0px;
   padding: 20px; }
 
@@ -212,15 +211,14 @@ main .mainResult {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #E6E1C5; }
+  background-color: black;
+  color: white; }
   main .mainResult .leftInfo {
     width: 50%;
     padding: 30px;
-    background-color: #E6E1C5;
     text-align: right;
     margin: auto; }
     main .mainResult .leftInfo h1 {
-      color: #57531D;
       margin: 0px; }
   main .mainResult .resultImage {
     width: 50%;
@@ -265,14 +263,14 @@ main .mainResult {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: rgba(87, 83, 29, 0.75); }
+  background-color: rgba(0, 0, 0, 0.75); }
   .overlay h4 {
-    color: #E6E1C5; }
+    color: white; }
 
 .wikiContainer {
   height: 300px;
-  padding: 30px; }
+  padding: 10px;
+  overflow: scroll; }
 
-#map {
-  height: 400px;
-  width: 400px; }
+.userTip {
+  margin: 20px 0; }
