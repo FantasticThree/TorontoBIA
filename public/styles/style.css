@@ -133,10 +133,10 @@ h1, h2, h3, h4 {
 
 body {
   font-family: "Quicksand", sans-serif;
-  background-color: black; }
+  background-color: #4C4C4C; }
 
 header {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #97DDCA;
   margin: 0 30px; }
 
 .wouldYouRather {
@@ -150,7 +150,7 @@ form {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #97DDCA;
   margin: 0 30px; }
   form h2 {
     width: 20%;
@@ -159,7 +159,7 @@ form {
     text-align: center; }
 
 h1, h2 {
-  color: white;
+  color: #97DDCA;
   font-size: 3em;
   margin: 30px 0px;
   text-transform: uppercase;
@@ -174,19 +174,18 @@ fieldset {
   width: 40%;
   height: 200px;
   padding: 0 30px;
-  background-color: black;
+  background-color: white;
   text-align: center;
-  border-bottom: 10px solid white;
+  border-bottom: 10px solid #97DDCA;
   position: relative;
   cursor: pointer;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out; }
   fieldset label {
-    color: white;
+    color: #57531D;
     line-height: 25px;
     cursor: pointer; }
   fieldset:hover {
-    background-color: black;
     -webkit-transform: translateY(-5px);
             transform: translateY(-5px); }
   fieldset input {
@@ -202,7 +201,7 @@ fieldset {
     margin: auto; }
 
 main h3 {
-  color: black;
+  color: #57531D;
   background-color: white;
   margin: 0px;
   padding: 20px; }
@@ -211,7 +210,7 @@ main .mainResult {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: black;
+  background-color: #4C4C4C;
   color: white; }
   main .mainResult .leftInfo {
     width: 50%;
@@ -263,9 +262,9 @@ main .mainResult {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: rgba(0, 0, 0, 0.75); }
+  background-color: rgba(151, 221, 202, 0.75); }
   .overlay h4 {
-    color: white; }
+    color: #4C4C4C; }
 
 .wikiContainer {
   height: 300px;

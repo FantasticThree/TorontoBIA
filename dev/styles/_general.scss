@@ -3,6 +3,7 @@ $lightGreen: #8A792E;
 $paleBlue: #97DDCA;
 $mint: #7A9E7E;
 $pearl: #E6E1C5;
+$gray: #4C4C4C;
 
 $headline: 'Arvo', serif;
 
@@ -14,11 +15,11 @@ font-family: $headline;
 
 body{
 	font-family: $bodyFont;
-	background-color: black;
+	background-color: #4C4C4C;
 }
 
 header {
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid $paleBlue;
 	margin: 0 30px;
 }
 
@@ -29,7 +30,7 @@ header {
 form {
 	display: flex;
 	flex-direction: row;
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid $paleBlue;
 	margin: 0 30px;
 	h2 {
 		width: 20%;
@@ -40,7 +41,7 @@ form {
 }
 
 h1,h2 {
-	color: white;
+	color: $paleBlue;
     font-size: 3em;
     margin: 30px 0px;
     text-transform: uppercase;
@@ -57,20 +58,19 @@ fieldset {
 	width: 40%;
 	height: 200px;
 	padding: 0 30px;
-	background-color: black;
+	background-color: white;
 	text-align: center;
 	// border-radius: 30px 30px 30px 30px;
-	border-bottom: 10px solid white;
+	border-bottom: 10px solid $paleBlue;
 	position: relative;
 	cursor: pointer;
 	transition: all .3s ease-in-out;
 	label {
-		color: white;
+		color: $darkGreen;
 		line-height: 25px;
 		cursor: pointer;
 	}
 	&:hover {
-		background-color: black;
 		transform: translateY(-5px);
 	}
 	input {
@@ -89,14 +89,14 @@ fieldset {
 
 main {
 	h3 {
-		color: black;
+		color: $darkGreen;
 		background-color: white;
 		margin: 0px;
 		padding: 20px;
 	}
 	.mainResult {
 		display: flex;
-		background-color: black;
+		background-color: $gray;
 		color: white;
 
 		.leftInfo {
