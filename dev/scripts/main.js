@@ -40,7 +40,7 @@ var scenarios = [
 	{
 		instance: "Break into a museum with an elite team of thieves tasked with acquiring an illusive and mysterious relic.",
 		searchValue: "escape games",
-		image: "public/styles/images/",
+		image: "public/styles/images/escapeRoom.jpeg",
 		activity: 'escape room'
 	},
 	{
@@ -82,6 +82,8 @@ var scenarios = [
 ];
 //Pull Two Scenarios At Random Out Of Object
 
+function wouldYouRather() {
+
 var rouletteScenario1 = Math.floor(Math.random() * 12) + 0;
 function getNewRandom(currentNum) {
 	var newRandom = Math.floor(Math.random() * 12);
@@ -94,16 +96,20 @@ function getNewRandom(currentNum) {
 }
 var myNum = getNewRandom(rouletteScenario1);
 
+
+
 //Display Scenario On Page
 
-$('.option1').append(scenarios[rouletteScenario1].instance);
-$('.option2').append(scenarios[myNum].instance);
+$('.option1').html(scenarios[rouletteScenario1].instance);
+$('.option2').html(scenarios[myNum].instance);
 $('#option1').val(rouletteScenario1);
 $('#option2').val(myNum);
 
+};
 // var userChoice = "";
 
 function init() {
+		wouldYouRather();
 	$("input[type=radio]").on("click", function(){
 		var userChoice = $("input[type=radio]:checked").val();
 		events.getInfo(scenarios[userChoice].searchValue);
@@ -147,10 +153,9 @@ events.getTip = function(userChoice) {
 		}
 	}).then(function(data){
 		console.log(userChoice);
-		console.log(data.response.groups[0].items[0].venue.location.lat);
+		console.log(data.response.groups[0].items[0]);
 		console.log(data.response.groups[0].items[0].venue.location.lng);
 		events.displayTip(data.response.groups[0].items[0].tips[0].text);
-		initMap(data.response.groups[0].items[0].venue.location.lat, data.response.groups[0].items[0].venue.location.lng, data.response.groups[0].items[0].venue.name);
 	});
 };
 
@@ -206,32 +211,18 @@ events.displayInfo = function(venue, userNumber){
 };
 
 events.displayTip = function(data){
-	$(".userTip").text(data);
+		$(".userTip").empty();
+	var tipTitle =$("<h4>").text("User Tip from FourSquare");
+	var tip = $("<p>").text(data);
+	console.log(data);
+	$(".userTip").append(tipTitle);
+	$(".userTip").append(tip);
 }
 
 init();
 
 $('.reset a').on('click', function(){
+	wouldYouRather();
+	$(".userTip").empty();
 	init();
 });
-
-// Google map stuff
-
- var map;
-      function initMap(latitude, longitude, title) {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {
-          	lat: latitude, 
-          	lng: longitude
-          },
-          zoom: 15
-        });
-	var marker = new google.maps.Marker({
-	    position: {
-	    	lat: latitude, 
-          	lng: longitude
-	    },
-	    map: map,
-	    title: 'Hello World!'
-	  });
-     }
