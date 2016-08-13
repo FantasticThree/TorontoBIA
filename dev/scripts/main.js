@@ -131,9 +131,6 @@ events.getInfo = function(userChoice) {
 	});
 };
 
-
-// "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=revision&rvprop=content&titles=laser%20tag&rvsection="1"
-
 wiki.getInfo = function(query) {
 	$.ajax({
 		url: 'http://en.wikipedia.org/w/api.php',
@@ -142,21 +139,26 @@ wiki.getInfo = function(query) {
 		data: {
 			format: 'json',
 			action: 'query',
-			prop: 'revisions',
-			rvprop: 'content',
-			titles: query,
-			rvsection: 1
+			prop: 'extracts',
+			// prop: 'revisions',
+			// rvprop: 'content',
+			// rvparse: "parse",
+			titles: query
+			// rvsection: 1
+
 		}
 	}).then(function(response) {
 		for (var key in response.query.pages){
-		console.log(response.query.pages[key].revisions[0]["*"]);
+		// console.log(response.query.pages[key].revisions[0]["*"]);
+		// wiki.displayInfo(response.query.pages[key].revisions[0]["*"]);
+		wiki.displayInfo(response.query.pages[key].extract);
 		};
 	});
 };
 
 wiki.displayInfo = function(wikiLink){
 	$('.wikiContainer').empty();
-		var activityLink = $('<a>').attr('href', wikiLink + '#History').text("History").attr('target', '_blank');
+		var activityLink = $('<p>').append(wikiLink);
 		$('.wikiContainer').append(activityLink);
 }
 
