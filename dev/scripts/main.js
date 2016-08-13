@@ -110,12 +110,14 @@ $('#option2').val(myNum);
 
 function init() {
 		wouldYouRather();
+		$(".showResult").hide();
 	$("input[type=radio]").on("click", function(){
 		var userChoice = $("input[type=radio]:checked").val();
 		events.getInfo(scenarios[userChoice].searchValue);
 		events.getTip(scenarios[userChoice].searchValue);
 		events.eventNumber = userChoice;
 		wiki.getInfo(scenarios[userChoice].activity);
+		$(".showResult").show();
 	});
 };
 
@@ -226,3 +228,4 @@ $('.reset a').on('click', function(){
 	$(".userTip").empty();
 	init();
 });
+
