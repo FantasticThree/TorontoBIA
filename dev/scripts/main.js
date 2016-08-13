@@ -107,6 +107,7 @@ function init() {
 	$("input[type=radio]").on("click", function(){
 		var userChoice = $("input[type=radio]:checked").val();
 		events.getInfo(scenarios[userChoice].searchValue);
+		events.getTip(scenarios[userChoice].searchValue);
 		events.eventNumber = userChoice;
 		wiki.getInfo(scenarios[userChoice].activity);
 	});
@@ -121,13 +122,35 @@ events.getInfo = function(userChoice) {
 			client_id: events.clientID,
 			client_secret: events.clientSecret,
 			v: events.version,
-			near: 'toronto',
+			near: 'Toronto',
 			query: userChoice
 		}
 	}).then(function(data){
 		events.displayInfo(data.response.venues[0]);
-		// console.log(userChoice);
-		// console.log(data.response.venues[0]);
+		console.log(userChoice);
+		console.log(data.response.venues[0]);
+	});
+};
+
+
+events.getTip = function(userChoice) {
+	$.ajax({
+		url: 'https://api.foursquare.com/v2/venues/explore?',
+		method: 'GET',
+		dataType: 'json',
+		data: {
+			client_id: events.clientID,
+			client_secret: events.clientSecret,
+			v: events.version,
+			near: 'Toronto',
+			query: userChoice
+		}
+	}).then(function(data){
+		console.log(userChoice);
+		console.log(data.response.groups[0].items[0].venue.location.lat);
+		console.log(data.response.groups[0].items[0].venue.location.lng);
+		events.displayTip(data.response.groups[0].items[0].tips[0].text);
+		initMap(data.response.groups[0].items[0].venue.location.lat, data.response.groups[0].items[0].venue.location.lng, data.response.groups[0].items[0].venue.name);
 	});
 };
 
@@ -140,6 +163,7 @@ wiki.getInfo = function(query) {
 			format: 'json',
 			action: 'query',
 			prop: 'extracts',
+			exintro: true,
 			// prop: 'revisions',
 			// rvprop: 'content',
 			// rvparse: "parse",
@@ -181,8 +205,33 @@ events.displayInfo = function(venue, userNumber){
 	$(".phoneNumber").text(venuePhone);
 };
 
+events.displayTip = function(data){
+	$(".userTip").text(data);
+}
+
 init();
 
 $('.reset a').on('click', function(){
 	init();
 });
+
+// Google map stuff
+
+ var map;
+      function initMap(latitude, longitude, title) {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {
+          	lat: latitude, 
+          	lng: longitude
+          },
+          zoom: 15
+        });
+	var marker = new google.maps.Marker({
+	    position: {
+	    	lat: latitude, 
+          	lng: longitude
+	    },
+	    map: map,
+	    title: 'Hello World!'
+	  });
+     }

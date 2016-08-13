@@ -271,5 +271,8 @@ main .mainResult {
 
 .wikiContainer {
   height: 300px;
-  padding: 30px;
-  overflow: scroll; }
+  padding: 30px; }
+
+#map {
+  height: 400px;
+  width: 400px; }
