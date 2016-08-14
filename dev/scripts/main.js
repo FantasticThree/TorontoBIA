@@ -29,7 +29,7 @@ var scenarios = [
 		instance: "Spank some balls with a wooden paddle while sipping on a Negroni with all your pals.",
 		searchValue: "spin toronto",
 		image: "public/styles/images/Spin.jpg",
-		activity: 'ping pong'
+		activity: 'table tennis'
 	},
 	{
 		instance: "Cease to be conscious of ones self as the one who is engaged in hitting a bulls-eye that confronts you.",
@@ -65,7 +65,7 @@ var scenarios = [
 		instance: "Sip a tasty non-fat-one-pump-no-whip mocha while being smothered by a barrage of kitties.",
 		searchValue: "TOT cat cafe",
 		image: "public/styles/images/CatCafe.jpg",
-		activity: 'cat cafe'
+		activity: 'Cat café'
 	},
 	{
 		instance: "Exist inside a gelatinous ectoplasm playing for Manchester United in the FA Cup Final.",
@@ -103,8 +103,8 @@ function wouldYouRather() {
 };
 
 function init() {
-		wouldYouRather();
-		$(".showResult").hide();
+	wouldYouRather();
+	$(".showResult").hide();
 	$("input[type=radio]").on("click", function(){
 		var userChoice = $("input[type=radio]:checked").val();
 		events.getInfo(scenarios[userChoice].searchValue);
@@ -172,11 +172,10 @@ wiki.getInfo = function(query) {
 			prop: 'extracts',
 			exintro: true,
 			titles: query
-
 		}
 	}).then(function(response) {
 		for (var key in response.query.pages){
-		// console.log(response.query.pages[key].revisions[0]["*"]);
+		// console.log(response.query.pages[key]);
 		// wiki.displayInfo(response.query.pages[key].revisions[0]["*"]);
 		wiki.displayInfo(response.query.pages[key].extract);
 		};
