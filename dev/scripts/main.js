@@ -214,7 +214,7 @@ events.displayInfo = function(venue, userNumber){
 
 events.displayTip = function(data){
 		$(".userTip").empty();
-	var tipTitle =$("<h4>").text("User Tip from FourSquare");
+	var tipTitle = $("<h4>").text("User Tip from FourSquare");
 	var tip = $("<p>").text(data);
 	console.log(data);
 	$(".userTip").append(tipTitle);
