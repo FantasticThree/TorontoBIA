@@ -51,7 +51,7 @@
 }
 
 .reset {
-	border: 5px solid $paleBlue;
+	border-bottom: 5px solid $paleBlue;
 	background-color: white;
 	color: $darkGreen;
 	margin: 60px auto;
@@ -61,4 +61,8 @@
 	justify-content: center;
 	width: 20%;
 	padding: 20px;
+	transition: all .3s ease-in-out;
+	&:hover {
+		transform: translateY(-5px);
+	}
 }
