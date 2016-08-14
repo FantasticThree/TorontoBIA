@@ -224,8 +224,18 @@ events.displayTip = function(data){
 init();
 
 $('.reset a').on('click', function(){
+	//smooth scroll
+	$('html,body').animate({
+	    scrollTop: $("header").offset().top},
+	    'slow');
 	wouldYouRather();
 	$(".userTip").empty();
 	init();
 });
 
+//smooth scroll
+$("label").click(function() {
+    $('html,body').animate({
+        scrollTop: $("main").offset().top},
+        'slow');
+});
