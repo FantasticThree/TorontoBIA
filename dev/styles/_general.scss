@@ -110,7 +110,7 @@ main {
 		color: white;
 
 		.leftInfo {
-			width: 50%;
+			width: 40%;
 			padding: 30px;
 			// background-color: black;
 			text-align: right;
@@ -120,7 +120,7 @@ main {
 			}
 		}
 		.resultImage {
-			width: 50%;
+			width: 60%;
 			height: 100%;
 			img {
 				width: 100%;
@@ -142,21 +142,20 @@ main {
 		}
 	}
 	.mainResult {
-		flex-direction: column;
+		flex-direction: column-reverse;
+		width: 100%;
 	}
 	.wouldYouRather {
 		margin-bottom: 38vh;
 	}
-	.leftInfo {
-		width: 100%;
-	}
 	main .mainResult .resultImage {
 		margin: auto;
+		width: 100%;
 	}
 }
 
 @media (max-width: 600px) {
 	main .mainResult .resultImage {
-		width: 70%;
+		width: 100%;
 	}
 }
