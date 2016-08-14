@@ -42,8 +42,23 @@
 	height: 300px;
 	padding: 10px;
 	overflow: scroll;
+	max-width: 600px;
+	margin-left: auto;
 }
 
 .userTip {
 	margin: 20px 0;
+}
+
+.reset {
+	border: 5px solid $paleBlue;
+	background-color: white;
+	color: $darkGreen;
+	margin: 60px auto;
+	text-align: center;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	width: 20%;
+	padding: 20px;
 }

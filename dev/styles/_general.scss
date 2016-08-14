@@ -13,6 +13,14 @@ h1, h2, h3, h4 {
 font-family: $headline;
 }
 
+a {
+	color: $paleBlue;
+	text-decoration: none;
+
+	&:visited {
+		color: $lightGreen;
+	}
+}
 body{
 	font-family: $bodyFont;
 	background-color: #4C4C4C;
@@ -27,7 +35,7 @@ header {
 	height: 100vh;
 }
 
-form {
+form, {
 	display: flex;
 	flex-direction: row;
 	border-bottom: 1px solid $paleBlue;
