@@ -226,14 +226,14 @@ main .mainResult {
   background-color: #4C4C4C;
   color: white; }
   main .mainResult .leftInfo {
-    width: 50%;
+    width: 40%;
     padding: 30px;
     text-align: right;
     margin: auto; }
     main .mainResult .leftInfo h1 {
       margin: 0px; }
   main .mainResult .resultImage {
-    width: 50%;
+    width: 60%;
     height: 100%; }
     main .mainResult .resultImage img {
       width: 100%;
@@ -255,19 +255,19 @@ main .mainResult {
       margin: 30px 0; }
   .mainResult {
     -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column; }
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    width: 100%; }
   .wouldYouRather {
     margin-bottom: 38vh; }
-  .leftInfo {
-    width: 100%; }
   main .mainResult .resultImage {
-    margin: auto; } }
+    margin: auto;
+    width: 100%; } }
 
 @media (max-width: 600px) {
   main .mainResult .resultImage {
-    width: 70%; } }
+    width: 100%; } }
 
 .galleryActivities {
   display: -webkit-box;
