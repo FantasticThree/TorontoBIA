@@ -290,7 +290,7 @@ main .mainResult {
   margin: 20px 0; }
 
 .reset {
-  border: 5px solid #97DDCA;
+  border-bottom: 5px solid #97DDCA;
   background-color: white;
   color: #57531D;
   margin: 60px auto;
@@ -304,4 +304,9 @@ main .mainResult {
       -ms-flex-pack: center;
           justify-content: center;
   width: 20%;
-  padding: 20px; }
+  padding: 20px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out; }
+  .reset:hover {
+    -webkit-transform: translateY(-5px);
+            transform: translateY(-5px); }
