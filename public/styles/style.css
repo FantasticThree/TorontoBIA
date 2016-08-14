@@ -335,4 +335,6 @@ main .mainResult {
 
 @media (max-width: 800px) {
   .galleryItem {
-    width: 50%; } }
+    width: 50%; }
+    .galleryItem .overlay {
+      opacity: 1; } }

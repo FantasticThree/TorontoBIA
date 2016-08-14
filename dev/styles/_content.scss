@@ -73,5 +73,9 @@
 @media (max-width: 800px) {
 	.galleryItem {
 		width: 50%;
+
+		.overlay {
+			opacity: 1;
+		}
 	}
 }
