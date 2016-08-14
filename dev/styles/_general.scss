@@ -141,8 +141,22 @@ main {
 			margin: 30px 0;
 		}
 	}
-
 	.mainResult {
 		flex-direction: column;
+	}
+	.wouldYouRather {
+		margin-bottom: 38vh;
+	}
+	.leftInfo {
+		width: 100%;
+	}
+	main .mainResult .resultImage {
+		margin: auto;
+	}
+}
+
+@media (max-width: 600px) {
+	main .mainResult .resultImage {
+		width: 70%;
 	}
 }

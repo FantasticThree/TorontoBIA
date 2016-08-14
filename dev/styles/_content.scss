@@ -78,4 +78,19 @@
 			opacity: 1;
 		}
 	}
+	.reset {
+		width: 50%;
+	}
+}
+
+@media (max-width: 600px) {
+	.reset {
+		width: 70%;
+	}
+}
+
+@media (max-width: 450px) {
+	.galleryItem {
+		width: 100%;
+	}
 }

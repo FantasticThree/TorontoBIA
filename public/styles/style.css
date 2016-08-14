@@ -257,7 +257,17 @@ main .mainResult {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
-            flex-direction: column; } }
+            flex-direction: column; }
+  .wouldYouRather {
+    margin-bottom: 38vh; }
+  .leftInfo {
+    width: 100%; }
+  main .mainResult .resultImage {
+    margin: auto; } }
+
+@media (max-width: 600px) {
+  main .mainResult .resultImage {
+    width: 70%; } }
 
 .galleryActivities {
   display: -webkit-box;
@@ -337,4 +347,14 @@ main .mainResult {
   .galleryItem {
     width: 50%; }
     .galleryItem .overlay {
-      opacity: 1; } }
+      opacity: 1; }
+  .reset {
+    width: 50%; } }
+
+@media (max-width: 600px) {
+  .reset {
+    width: 70%; } }
+
+@media (max-width: 450px) {
+  .galleryItem {
+    width: 100%; } }
