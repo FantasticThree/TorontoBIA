@@ -100,8 +100,8 @@ var myNum = getNewRandom(rouletteScenario1);
 
 //Display Scenario On Page
 
-$('.option1').html(scenarios[rouletteScenario1].instance);
-$('.option2').html(scenarios[myNum].instance);
+$('.option1 p').html(scenarios[rouletteScenario1].instance);
+$('.option2 p').html(scenarios[myNum].instance);
 $('#option1').val(rouletteScenario1);
 $('#option2').val(myNum);
 
