@@ -60,8 +60,11 @@
 	align-content: center;
 	justify-content: center;
 	width: 20%;
-	padding: 20px;
 	transition: all .3s ease-in-out;
+	a {
+		padding: 20px;
+		width: 100%;
+	}
 	&:hover {
 		transform: translateY(-5px);
 	}

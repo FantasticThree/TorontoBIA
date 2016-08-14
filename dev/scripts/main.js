@@ -17,7 +17,7 @@ var scenarios = [
 		instance: "Stroll down Park Place with Rich Uncle Penny Bags making it rain because you know you’re about to pass GO.",
 		searchValue: "castle board game cafe",
 		image: "public/styles/images/Castle.jpg",
-		activity: 'board game' //HOW TO SCROLL TO HISTORY SECTION AUTOMATICALLY????
+		activity: 'board game'
 	},
 	{
 		instance: "Kill some time during the Punic Wars against Carthage by throwing rocks at some other rocks with your fellow soldiers.",
@@ -83,30 +83,24 @@ var scenarios = [
 //Pull Two Scenarios At Random Out Of Object
 
 function wouldYouRather() {
-
-var rouletteScenario1 = Math.floor(Math.random() * 12) + 0;
-function getNewRandom(currentNum) {
-	var newRandom = Math.floor(Math.random() * 12);
-	if(newRandom === currentNum) {
-		return getNewRandom(currentNum);
+	var rouletteScenario1 = Math.floor(Math.random() * 12) + 0;
+	function getNewRandom(currentNum) {
+		var newRandom = Math.floor(Math.random() * 12);
+		if(newRandom === currentNum) {
+			return getNewRandom(currentNum);
+		}
+		else {
+			return newRandom
+		}
 	}
-	else {
-		return newRandom
-	}
-}
-var myNum = getNewRandom(rouletteScenario1);
+	var myNum = getNewRandom(rouletteScenario1);
+	//Display Scenario On Page
 
-
-
-//Display Scenario On Page
-
-$('.option1 p').html(scenarios[rouletteScenario1].instance);
-$('.option2 p').html(scenarios[myNum].instance);
-$('#option1').val(rouletteScenario1);
-$('#option2').val(myNum);
-
+	$('.option1 p').html(scenarios[rouletteScenario1].instance);
+	$('.option2 p').html(scenarios[myNum].instance);
+	$('#option1').val(rouletteScenario1);
+	$('#option2').val(myNum);
 };
-// var userChoice = "";
 
 function init() {
 		wouldYouRather();
@@ -134,9 +128,15 @@ events.getInfo = function(userChoice) {
 			query: userChoice
 		}
 	}).then(function(data){
-		events.displayInfo(data.response.venues[0]);
-		console.log(userChoice);
+		if (data.response.venues[0].categories[0].name === "Track") {
+			//GET THE CORRECT TRACK AND FIELD RESULT
+			events.displayInfo(data.response.venues[1])
+		}else {
+			events.displayInfo(data.response.venues[0]);
+		}
+		// console.log(userChoice);
 		console.log(data.response.venues[0]);
+		// console.log(data.response.venues[0].categories[0].name)
 	});
 };
 
@@ -154,9 +154,9 @@ events.getTip = function(userChoice) {
 			query: userChoice
 		}
 	}).then(function(data){
-		console.log(userChoice);
-		console.log(data.response.groups[0].items[0]);
-		console.log(data.response.groups[0].items[0].venue.location.lng);
+		// console.log(userChoice);
+		// console.log(data.response.groups[0].items[0]);
+		// console.log(data.response.groups[0].items[0].venue.location.lng);
 		events.displayTip(data.response.groups[0].items[0].tips[0].text);
 	});
 };
@@ -171,11 +171,7 @@ wiki.getInfo = function(query) {
 			action: 'query',
 			prop: 'extracts',
 			exintro: true,
-			// prop: 'revisions',
-			// rvprop: 'content',
-			// rvparse: "parse",
 			titles: query
-			// rvsection: 1
 
 		}
 	}).then(function(response) {
@@ -197,16 +193,14 @@ events.displayInfo = function(venue, userNumber){
 //GRAB NAME, URL, PHONE#, ADDRESS, STORE HOURS FROM FIRST RESULT
     var venueName = venue.name;
     var venueURL = venue.url;
-	console.log(venueURL);
+	// console.log(venueURL);
     var venuePhone = venue.contact.formattedPhone;
     var venueAddress = venue.location.formattedAddress;
 //APPEND TO HTML
     $(".activityTitle").text(venueName);
 	$(".resultImage").html($("<img>").attr("src", scenarios[events.eventNumber].image));
-	// $(".url").html($("<a>").attr("href", venueURL));
 	var displayURL = $("<a target=\"_blank\">").attr("href", venueURL);
 	var urlText = $(displayURL).text("See Site");
-	// displayURL.append(urlText);
 	$('.url').html(displayURL);
 	$(".location").text(venueAddress[0] + ", " +venueAddress[1] + ", " +venueAddress[2]);
 	$(".phoneNumber").text(venuePhone);
@@ -216,7 +210,7 @@ events.displayTip = function(data){
 		$(".userTip").empty();
 	var tipTitle = $("<h4>").text("User Tip from FourSquare");
 	var tip = $("<p>").text(data);
-	console.log(data);
+	// console.log(data);
 	$(".userTip").append(tipTitle);
 	$(".userTip").append(tip);
 }
@@ -228,7 +222,6 @@ $('.reset a').on('click', function(){
 	$('html,body').animate({
 	    scrollTop: $("header").offset().top},
 	    'slow');
-	wouldYouRather();
 	$(".userTip").empty();
 	init();
 });

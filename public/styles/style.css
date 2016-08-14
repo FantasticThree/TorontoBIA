@@ -304,9 +304,11 @@ main .mainResult {
       -ms-flex-pack: center;
           justify-content: center;
   width: 20%;
-  padding: 20px;
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out; }
+  .reset a {
+    padding: 20px;
+    width: 100%; }
   .reset:hover {
     -webkit-transform: translateY(-5px);
             transform: translateY(-5px); }
